@@ -28,7 +28,7 @@ public class UserController extends HttpServlet {
 
         //取得访问路径
         String path=request.getServletPath();
-
+        System.out.println(path);
         if ("/settings/user/login.do".equals(path)){
             login(request,response);
         }else if ("/settings/user/xxx.do".equals(path)){

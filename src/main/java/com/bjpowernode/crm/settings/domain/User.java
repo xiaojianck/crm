@@ -117,7 +117,6 @@ public class User {
         this.createBy = createBy;
         return this;
     }
-
     public String getEditTime() {
         return editTime;
     }

@@ -16,14 +16,14 @@ import java.util.Map;
  * 2019/6/14
  */
 public class UserServiceImpl implements UserService {
-    private UserDao userDao= SqlSessionUtil.getSqlSession().getMapper(UserDao.class);
+
 
     @Override
     public User login(String loginAct, String loginPwd, String ip) throws LoginException {
         Map<String,String > map=new HashMap<>();
         map.put("loginAct", loginAct);
         map.put("loginPwd",loginPwd);
-
+        UserDao userDao= SqlSessionUtil.getSqlSession().getMapper(UserDao.class);
         User user=userDao.login(map);
 
         if (user==null){
@@ -52,6 +52,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getUserList() {
+        UserDao userDao= SqlSessionUtil.getSqlSession().getMapper(UserDao.class);
         List<User> users=userDao.getUserList();
         return users;
     }
