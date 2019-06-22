@@ -31,5 +31,7 @@ public interface ActivityService {
     boolean saveRemark(ActivityRemak ar);
 
     boolean updateRemark(ActivityRemak ar);
+
+    List<Activity> getActivityListByClueId(String clueId);
 }
 

@@ -119,6 +119,13 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
+    public List<Activity> getActivityListByClueId(String clueId) {
+        ActivityDao activityDao =SqlSessionUtil.getSqlSession().getMapper(ActivityDao.class);
+        List<Activity> activityList=activityDao.getActivityListByClueId(clueId);
+        return activityList;
+    }
+
+    @Override
     public boolean saveRemark(ActivityRemak ar) {
         boolean flag=true;
         ActivityRemarkDao activityRemarkDao=SqlSessionUtil.getSqlSession().getMapper(ActivityRemarkDao.class);

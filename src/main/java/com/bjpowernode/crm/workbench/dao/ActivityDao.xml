@@ -125,5 +125,21 @@
      #{createBy}
      )
  </insert>
+    <select id="getActivityListByClueId" parameterType="String" resultType="Activity">
+        select
+        tu.name as owner,
+        ta.name,
+        ta.startDate,
+        ta.endDate,
+        tcar.id as id
+
+        from tbl_clue_activity_relation tcar
+        join tbl_activity ta
+        on tcar.activityId=ta.id
+        join tbl_user tu
+        on tu.id=ta.owner
+
+        where tcar.clueId=#{clueId}
+    </select>
 
 </mapper>

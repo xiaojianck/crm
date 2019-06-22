@@ -23,7 +23,9 @@ public class DicServiceImpl implements DicService {
     @Override
     public Map<String, List<DicValue>> getAll() {
         Map<String,List<DicValue>> map=new HashMap<>();
+
         List<DicType> dicTypeList=dicTypeDao.getAll();
+
         for (DicType dicType : dicTypeList) {
             String code =dicType.getCode();
             List<DicValue> dicValueList=dicValueDao.getDicValueListByDicType(code);
